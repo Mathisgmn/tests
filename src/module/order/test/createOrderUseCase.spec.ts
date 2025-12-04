@@ -3,7 +3,7 @@ import { CreateOrderUseCase } from '../createOrderUseCase';
 import { Order, OrderStatus } from '../Order';
 import { OrderRepository } from '../orderRepository';
 
-class InMemoryOrderRepository implements OrderRepository {
+class InMemoryOrderRepository extends OrderRepository {
     async save(order: Order): Promise<Order> {
         order.id = 1;
         order.status = OrderStatus.PENDING;

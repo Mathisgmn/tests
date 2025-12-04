@@ -2,8 +2,8 @@ import AppDataSource from '../../config/db.config';
 import { Order } from './Order';
 
 export class OrderRepository {
-    async save(order: Order): Promise<void> {
+    async save(order: Order): Promise<Order> {
         const typeOrmRepository = AppDataSource.getRepository<Order>(Order);
-        await typeOrmRepository.save(order);
+        return typeOrmRepository.save(order);
     }
 }
